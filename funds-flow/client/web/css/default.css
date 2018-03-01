@@ -1,0 +1,40 @@
+* {
+    box-sizing: content-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+header, footer {
+    flex: 0 0 50px;
+    background-color: #24292e;
+    width: 100%;
+}
+
+.center {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.menu {
+    border: 1px solid white;
+    color: white;
+    width: 1012px;
+    display: flex;
+    justify-content: space-between;
+    .item {
+        flex: 1;
+    }
+}
+
+.left {
+    flex: 1 1 auto;
+}
+
+.right {
+    flex: 2 1 auto;
+}
