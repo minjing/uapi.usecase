@@ -29,7 +29,6 @@ header {
 
 footer {
     background-color: #fafbfc;
-    /*border: 1px solid #888888;*/
     box-shadow: 0px -2px 1px #aeaeae;
 
 }
@@ -37,6 +36,8 @@ footer {
 .main {
     flex: 1;
     width: 1012px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .menu {
@@ -54,8 +55,13 @@ footer {
 }
 
 .navItem {
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-top: 18px;
+    padding-top: 8px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 16px;
 }
 
 .navLink {
@@ -70,8 +76,35 @@ footer {
     text-decoration: none;
 }
 
-.shotcut {
+.navItemCurrent {
+    background-color: #ffffff;
+    color: #aeaeae;
+    box-shadow: 0px 2px 1px #888888 inset;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+/*    border-bottom-left-radius:0px;
+    border-bottom-right-radius: 0px;*/
+/*    padding-top: 6px;
+    padding-bottom: 6px;*/
+}
+
+.navLinkCurrent {
+    color: #000000;
+    text-decoration: none;
+    list-style: none;
+    font-weight: 600;
+}
+
+.navLinkCurrent:hover {
+    color: #000000;
+    text-decoration: none;
+}
+
+.shortcut {
     flex: none;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
 }
 
 .box {

@@ -3,41 +3,29 @@
 <html>
 <head>
     <title>Welcome to Funds Flow Web Client</title>
-    <link rel="stylesheet" type="text/css" href="css/default.css"/>
-    <script type="text/javascript" src="js/i18next.min.js"></script>
-    <script type="text/javascript" src="js/i18nextXHRBackend.min.js"></script>
-    <!-- <script type="text/javascript" src="js/loc-i18next.min.js"></script> -->
+    <link rel="stylesheet" type="text/css" href="css/layout.css"/>
+    <link rel="stylesheet" type="text/css" href="css/mask.css"/>
+    <script type="text/javascript" src="js/3rd/i18next.min.js"></script>
+    <script type="text/javascript" src="js/3rd/i18nextXHRBackend.min.js"></script>
+    <script type="text/javascript" src="js/3rd/loc-i18next.min.js"></script>
 </head>
 
 <body>
     <header>
         <div class="menu">
-            <ul class="nav box">
-                <li class="navItem"><a href="#" class="navLink" id='menu.trading'></a></li>
-                <li class="navItem"><a href="#" class="navLink" id="menu.account"></a></li>
+            <ul class="nav">
+                <li class="navItem navItemCurrent"><a href="#" class="navLinkCurrent" data-i18n='menu.signin'></a></li>
+                <li class="navItem"><a href="#" class="navLink" data-i18n="menu.signup"></a></li>
             </ul>
-            <div class="shotcut box">Signed as XXX</div>
+            <ul class="shortcut">
+                <li class="navItem" data-i18n="shortcut.annoymous"></li>
+            </ul>
         </div>
     </header>
-    <div class="main box">
-        aaa
-    </div>
-    <footer>footer</footer>
+    <div class="main"></div>
+    <footer>Demo application for UAPI framework usage</footer>
 
-    <script type="text/javascript">
-        i18next.use(i18nextXHRBackend).init({
-            fallbackLng: 'en',
-            backend: {
-                loadPath: '/locales/{{lng}}/{{ns}}.json'
-            }
-        }, function(err, t) {
-            updateContent();
-        });
-
-        function updateContent() {
-            document.getElementById('menu.trading').innerHTML = i18next.t('menu.trading');
-            document.getElementById('menu.account').innerHTML = i18next.t('menu.account');
-        }
-    </script>
+    <script type="text/javascript" src="js/i18n.js"></script>
+    <script type="text/javascript" src="js/signin.js"></script>
 </body>
 </html>
