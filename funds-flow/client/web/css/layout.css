@@ -10,6 +10,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: rgba(0,0,0,1);
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 }
 
@@ -23,14 +24,13 @@ header, footer {
 }
 
 header {
-    background-color: #24292e;
-    box-shadow: 0px 2px 1px #888888;
+    background-color: #eaebec;
+    box-shadow: 0px -2px 1px #aeaeae inset;
 }
 
 footer {
     background-color: #fafbfc;
-    box-shadow: 0px -2px 1px #aeaeae;
-
+    box-shadow: 0px 2px 1px #aeaeae inset;
 }
 
 .main {
@@ -41,7 +41,7 @@ footer {
 }
 
 .menu {
-    color: white;
+    /*color: white;*/
     width: 1012px;
     display: flex;
     justify-content: space-between;
@@ -57,7 +57,7 @@ footer {
 .navItem {
     margin-left: 2px;
     margin-right: 2px;
-    margin-top: 18px;
+    margin-top: 12px;
     padding-top: 8px;
     padding-bottom: 10px;
     padding-left: 15px;
@@ -65,21 +65,21 @@ footer {
 }
 
 .navLink {
-    color: rgba(255,255,255,0.75);
+    color: rgba(0,0,0,0.5);
     text-decoration: none;
     list-style: none;
     font-weight: 600;
 }
 
 .navLink:hover {
-    color: #FFFFFF;
+    color: #000000;
     text-decoration: none;
 }
 
 .navItemCurrent {
     background-color: #ffffff;
     color: #aeaeae;
-    box-shadow: 0px 2px 1px #888888 inset;
+    box-shadow: 0px -2px 1px #aeaeae;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
 /*    border-bottom-left-radius:0px;
