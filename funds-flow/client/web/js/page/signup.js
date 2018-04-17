@@ -1,11 +1,20 @@
-var signup = {
+var signupPage = {
+    name: 'signup',
+
     onLoad: function() {
-        var navItems = document.getElementsByClassName('navItem');
-        for (var i = 0; i < navItems.length; i++) {
-            navItems[i].className = 'navItem';
-            if (navItems[i].getAttribute('name') === 'signup') {
-                navItems[i].className += ' navItemCurrent';
-            }
-        }
+        loader.css('css/page/sign.css');
+    },
+
+    onInit: function() {
+        switchMenu(signMenus, 'signup');
+
+        var main = document.getElementById('main');
+        main.innerHTML = '';
+        var form = document.createElement('div');
+        form.className = 'box';
+        form.innerText = 'Signup form';
+        main.appendChild(form);
     }
-}
+};
+
+pages.register(signupPage);

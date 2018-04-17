@@ -1,25 +1,3 @@
-// var mask = document.getElementById('mask');
-// var loginWin = document.getElementById('login');
-// var bt = document.getElementById('bt');
-// var closeBt = document.getElementById('close');
-
-// bt.onclick = function() {
-//     mask.style.display = 'block';
-//     loginWin.style.display = 'block';
-// }
-
-// closeBt.onclick = function() {
-//     mask.style.display = 'none';
-//     loginWin.style.display = 'none';
-// }
-
-/**
- * 1. Send request to server to fetch user information.
- * 2. Show sign in window if user information is empty.
- * 3. Clear main area and show default window when user sign in success.
- * 4. Clear main area and show sign up window if user select sign up action.
- */
-
 var request = new XMLHttpRequest();
 
 var currentPage = null;
@@ -76,22 +54,27 @@ var loader = {
 }
 
 if (currentPage == null) {
-    loader.js('js/page/signin.js');
+    loader.js('js/page/signin.js', function() {
+        pages.load('signin');
+    });
 }
 
-function toPage(page) {
-    var basePath = 'js/page/';
-    if (page === 'signin') {
-        loader.js(basePath + 'signin.js', function() {
-            signin.onLoad();
-        });
-    } else if (page === 'signup') {
-        loader.js(basePath + 'signup.js', function() {
-            signup.onLoad();
-        });
+/**
+ *
+ */
+var pages = {
+    _pageMap: new Map(),
+
+    register: function(page) {
+        var name = page.name;
+        this._pageMap.set(page.name, page);
+    },
+
+    load: function(name) {
+        var page = this._pageMap.get(name);
+        page.onLoad();
+        page.onInit();
     }
 }
 
-var page = {
-    onLoad: function() {}
-}
+renderMenu(signMenus, 'signin');

@@ -1,0 +1,7 @@
+.signForm {
+    border: 1px solid #aeaeae;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    width: 80%;
+    padding: 10px;
+}
