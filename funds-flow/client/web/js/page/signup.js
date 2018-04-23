@@ -11,7 +11,7 @@ var signupPage = {
         var main = document.getElementById('main');
         main.innerHTML = '';
         var form = document.createElement('div');
-        form.className = 'box';
+        form.className = 'signForm fade-in';
         form.innerText = 'Signup form';
         main.appendChild(form);
     }
