@@ -1,6 +1,16 @@
 {
     "menu": {
+        "signin": "登入",
+        "signout": "登出",
+        "signup": "注册",
         "trading": "交易管理",
         "account": "账户管理"
+    },
+    "shortcut": {
+        "annoymous": "匿名用户",
+        "lan": {
+            "en_US": "美国英语",
+            "zh_CN": "简体中文"
+        }
     }
 }

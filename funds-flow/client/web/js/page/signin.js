@@ -6,14 +6,11 @@ var signinPage = {
     },
 
     onInit: function() {
-        switchMenu(signMenus, 'signin');
+        menus.switchMenu(signMenus, 'signin');
 
-        var main = document.getElementById('main');
-        main.innerHTML = '';
         var form = document.createElement('div');
-        form.className = 'signForm fade-in';
-        form.innerText = 'Signin Form';
-        main.appendChild(form);
+        form.innerText = 'SignIn Form';
+        utils.showNewContent(form, 'signForm');
     }
 };
 

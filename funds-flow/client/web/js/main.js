@@ -53,6 +53,24 @@ var loader = {
     }
 }
 
+var utils = {
+    showNewContent: function(content, commonStyle) {
+        var main = document.getElementById('main');
+        var oldform = main.getElementsByTagName('div');
+        if (oldform.length > 0) {
+            oldform[0].className = commonStyle + ' fade-out';
+            setTimeout(function() {
+                main.innerHTML = '';
+                content.className = commonStyle + ' fade-in';
+                main.appendChild(content);
+            }, 450)
+        } else {
+            content.className = commonStyle + ' fade-in';
+            main.appendChild(content);
+        }
+    }
+}
+
 if (currentPage == null) {
     loader.js('js/page/signin.js', function() {
         pages.load('signin');
@@ -77,4 +95,5 @@ var pages = {
     }
 }
 
-renderMenu(signMenus, 'signin');
+menus.renderMenu(signMenus, 'signin');
+shortcuts.renderShutcut(null, 'en-US');

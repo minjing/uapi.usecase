@@ -7,6 +7,10 @@
         "account": "Account"
     },
     "shortcut": {
-        "annoymous": "Anonymous User"
+        "annoymous": "Anonymous User",
+        "lan": {
+            "en_US": "English (US)",
+            "zh_CN": "Simplified Chinese"
+        }
     }
 }

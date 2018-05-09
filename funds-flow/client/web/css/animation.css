@@ -15,11 +15,21 @@
 
 .fade-in {
     animation: fade-in-cfg;
-    animation-duration: 1s;
+    animation-duration: 0.5s;
     /* -webkit-animation: fade-in 1s; */
 }
 
 .fade-out {
     animation: fade-out-cfg;
+    animation-duration: 0.8s;
+}
+
+@@keyframes right-to-left {
+    from { left: 0px; }
+    to { left: 500px; }
+}
+
+.right-fly-in {
+    animation: right-to-left;
     animation-duration: 1s;
 }

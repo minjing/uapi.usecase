@@ -6,14 +6,11 @@ var signupPage = {
     },
 
     onInit: function() {
-        switchMenu(signMenus, 'signup');
+        menus.switchMenu(signMenus, 'signup');
 
-        var main = document.getElementById('main');
-        main.innerHTML = '';
         var form = document.createElement('div');
-        form.className = 'signForm fade-in';
-        form.innerText = 'Signup form';
-        main.appendChild(form);
+        form.innerText = 'SignUp Form';
+        utils.showNewContent(form, 'signForm');
     }
 };
 
