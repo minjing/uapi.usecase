@@ -44,6 +44,12 @@ footer {
     box-shadow: 0px 2px 1px #aeaeae inset;
 }
 
+#templateLoader {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
 .main {
     flex: 1;
     width: 1012px;

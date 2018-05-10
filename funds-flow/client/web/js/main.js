@@ -61,12 +61,10 @@ var utils = {
             oldform[0].className = commonStyle + ' fade-out';
             setTimeout(function() {
                 main.innerHTML = '';
-                content.className = commonStyle + ' fade-in';
-                main.appendChild(content);
+                main.innerHTML = content;
             }, 450)
         } else {
-            content.className = commonStyle + ' fade-in';
-            main.appendChild(content);
+            main.innerHTML = content;
         }
     },
 
@@ -84,6 +82,12 @@ var utils = {
             left += this.getLeft(element.offsetParent);
         }
         return left;
+    },
+
+    loadTemplate(path, callback) {
+        var tempLoader = document.getElementById('templateLoader');
+        templateLoader.onload = callback;
+        templateLoader.src = path;
     }
 }
 
@@ -111,7 +115,7 @@ var pages = {
     }
 }
 
-i18n.loadLanguage('en');
+i18n.loadLanguage(defaultLanguage.lng);
 
 menus.renderMenu(signMenus, 'signin');
 shortcuts.renderShutcut(null, 'en-US');

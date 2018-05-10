@@ -1,5 +1,6 @@
 var signinPage = {
     name: 'signin',
+    template: 'fragment/signin.html',
 
     onLoad: function() {
         loader.css('css/page/sign.css');
@@ -7,10 +8,15 @@ var signinPage = {
 
     onInit: function() {
         menus.switchMenu(signMenus, 'signin');
+        utils.loadTemplate(this.template, this.render)
+    },
 
-        var form = document.createElement('div');
-        form.innerText = 'SignIn Form';
-        utils.showNewContent(form, 'signForm');
+    render: function() {
+        var tempLoader = document.getElementById('templateLoader');
+        var root = tempLoader.contentDocument.getElementById('root');
+        var render = template.compile(root.innerHTML);
+        var html = render({});
+        utils.showNewContent(html, 'signForm');
     }
 };
 

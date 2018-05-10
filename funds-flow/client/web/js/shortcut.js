@@ -1,15 +1,3 @@
-var languages = [{
-    name: 'en-US',
-    i18key: 'shortcut.lan.en_US',
-    img: 'img/country/us.png',
-    lng: 'en'
-},{
-    name: 'zh-CN',
-    i18key: 'shortcut.lan.zh_CN',
-    img: 'img/country/cn.png',
-    lng: 'zh'
-}];
-
 var shortcuts = {
     currentLanguage: null,
 
