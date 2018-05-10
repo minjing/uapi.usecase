@@ -1,12 +1,14 @@
 #contextMenu {
     position: absolute;
-    top: 100px;
-    width: 100px;
-    height: 200px;
+    left: -1000px;
+    top: -1000px;
+    /* width: 100px;
+    height: 200px; */
     border: 1px solid #aeaeae;
     border-radius: 4px;
-    padding: 10px;
+    padding: 2px;
     box-shadow: 1px 1px 1px #aeaeae;
+    visibility: hidden;
 }
 
 #contextMenu:before, #contextMenu:after {
@@ -28,4 +30,29 @@
 
 #contextMenu:before {
     border-bottom-color: #aeaeae;
+}
+
+.language-items {
+    list-style: none;
+    font-size: 10pt;
+    text-align: left;
+    font-weight: 600;
+    word-break: keep-all;
+    white-space: nowrap;
+    margin: 0px;
+    padding: 0px;
+}
+
+.language-item {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.language-img {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 5px;
 }

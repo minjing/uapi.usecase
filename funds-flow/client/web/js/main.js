@@ -68,6 +68,22 @@ var utils = {
             content.className = commonStyle + ' fade-in';
             main.appendChild(content);
         }
+    },
+
+    getTop: function(element) {
+        var top = element.offsetTop;
+        if (element.offsetParent != null) {
+            top += this.getTop(element.offsetParent);
+        }
+        return top;
+    },
+
+    getLeft: function(element) {
+        var left = element.offsetLeft;
+        if (element.offsetParent != null) {
+            left += this.getLeft(element.offsetParent);
+        }
+        return left;
     }
 }
 
@@ -95,5 +111,11 @@ var pages = {
     }
 }
 
+i18n.loadLanguage('en');
+
 menus.renderMenu(signMenus, 'signin');
 shortcuts.renderShutcut(null, 'en-US');
+
+document.getElementsByTagName('body')[0].addEventListener('click', function(event) {
+    context.hideMenu();
+});
