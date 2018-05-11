@@ -10,24 +10,33 @@ var languages = [{
     lng: 'zh_CN'
 }];
 
-var defaultLanguage = languages[0];
-
-function updateContent() {
-    localize = locI18next.init(i18next);
-    localize('.menu');
-    // localize('.contextMenu');
-}
+// function updateContent() {
+//     localize = locI18next.init(i18next);
+//     localize('.menu');
+//     localize('.main');
+// }
 
 var i18n = {
+    defaultLanguage: languages[0],
+
     loadLanguage: function(language) {
+        if (language == null) {
+            language = i18n.defaultLanguage;
+        }
         i18next.use(i18nextXHRBackend).init({
-            lng: language,
-            fallbackLng: defaultLanguage.lng,
+            lng: language.lng,
+            fallbackLng: this.defaultLanguage.lng,
             backend: {
                 loadPath: '/locales/{{lng}}/{{ns}}.json'
             }
         }, function(err, t) {
-            updateContent();
+            i18n.updateContent();
         });
+    },
+
+    updateContent: function() {
+        localize = locI18next.init(i18next);
+        localize('.menu');
+        localize('.main');
     }
 }

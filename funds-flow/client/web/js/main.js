@@ -1,7 +1,3 @@
-var request = new XMLHttpRequest();
-
-var currentPage = null;
-
 var loader = {
     js: function(path, callback) {
         if ( !path || path.length === 0) {
@@ -54,7 +50,11 @@ var loader = {
 }
 
 var utils = {
-    showNewContent: function(content, commonStyle) {
+    request: function() {
+        return new XMLHttpRequest();
+    },
+
+    showNewContent: function(content, commonStyle, callback) {
         var main = document.getElementById('main');
         var oldform = main.getElementsByTagName('div');
         if (oldform.length > 0) {
@@ -62,9 +62,15 @@ var utils = {
             setTimeout(function() {
                 main.innerHTML = '';
                 main.innerHTML = content;
+                if (callback) {
+                    callback();
+                }
             }, 450)
         } else {
             main.innerHTML = content;
+            if (callback) {
+                callback();
+            }
         }
     },
 
@@ -84,42 +90,16 @@ var utils = {
         return left;
     },
 
-    loadTemplate(path, callback) {
+    loadTemplate: function(path, callback) {
         var tempLoader = document.getElementById('templateLoader');
         templateLoader.onload = callback;
         templateLoader.src = path;
     }
-}
+};
 
-if (currentPage == null) {
-    loader.js('js/page/signin.js', function() {
-        pages.load('signin');
-    });
-}
-
-/**
- *
- */
-var pages = {
-    _pageMap: new Map(),
-
-    register: function(page) {
-        var name = page.name;
-        this._pageMap.set(page.name, page);
-    },
-
-    load: function(name) {
-        var page = this._pageMap.get(name);
-        page.onLoad();
-        page.onInit();
-    }
-}
-
-i18n.loadLanguage(defaultLanguage.lng);
-
-menus.renderMenu(signMenus, 'signin');
-shortcuts.renderShutcut(null, 'en-US');
+menus.renderMenu(signMenus, menus.signin.name);
+shortcuts.renderShutcut(null, context.currentLanguage.name);
 
 document.getElementsByTagName('body')[0].addEventListener('click', function(event) {
-    context.hideMenu();
+    contextMenu.hideMenu();
 });

@@ -1,14 +1,17 @@
 var signMenus = [{
     name: 'signin',
     i18nkey: 'menu.signin',
-    js: 'signin.js'
+    js: 'js/page/signin.js'
 }, {
     name: 'signup',
     i18nkey: 'menu.signup',
-    js: 'signup.js'
+    js: 'js/page/signup.js'
 }]
 
 var menus = {
+    signin: signMenus[0],
+    signup: signMenus[1],
+
     /**
      * menus: which menus will be rendered
      * currentMenu: Which menus is selected after menus is rendered
@@ -34,24 +37,46 @@ var menus = {
             menu.className = 'navItem';
             if (menu.getAttribute('name') === toMenuName) {
                 menu.className += ' navItemCurrent';
-                menu.removeEventListener('click', this.onMenuClick);
+                menu.removeEventListener('click', this.onSignMenuClick);
             } else {
                 menu.className += ' navLink';
-                menu.addEventListener('click', this.onMenuClick);
+                menu.addEventListener('click', this.onSignMenuClick);
+            }
+        }
+        this.toPage(toMenuName);
+    },
+
+    toPage: function(pageName) {
+        for (var i = 0; i < signMenus.length; i++) {
+            if (pageName === signMenus[i].name) {
+                pages.loadPage(signMenus[i].name, signMenus[i].js);
+                break;
             }
         }
     },
 
-    onMenuClick: function(event) {
-        var basePath = 'js/page/';
+    onSignMenuClick: function(event) {
         var pageName = this.getAttribute('name');
-        for (var i = 0; i < signMenus.length; i++) {
-            if (pageName === signMenus[i].name) {
-                loader.js(basePath + signMenus[i].js, function() {
-                    pages.load(signMenus[i].name);
-                });
-                break;
-            }
-        }
+        menus.switchMenu(signMenus, pageName);
+    }
+}
+
+var contextMenu = {
+    showMenu: function(element) {
+        var ctxMenu = document.getElementById('contextMenu');
+
+        var x = utils.getLeft(element) - (ctxMenu.offsetWidth - element.offsetWidth) / 2;
+        var y = utils.getTop(element) + element.offsetHeight + 10;
+
+        ctxMenu.style.top = y + 'px';
+        ctxMenu.style.left = x + 'px';
+        ctxMenu.style.visibility = 'visible';
+    },
+
+    hideMenu: function() {
+        var ctxMenu = document.getElementById('contextMenu');
+        ctxMenu.style.top = '-1000px';
+        ctxMenu.style.left = '-1000px';
+        ctxMenu.style.visibility = 'hidden';
     }
 }

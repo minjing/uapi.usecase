@@ -7,7 +7,7 @@ var signupPage = {
     },
 
     onInit: function() {
-        menus.switchMenu(signMenus, 'signup');
+        // menus.switchMenu(signMenus, this.name);
         utils.loadTemplate(this.template, this.render)
     },
 
@@ -16,7 +16,9 @@ var signupPage = {
         var root = tempLoader.contentDocument.getElementById('root');
         var render = template.compile(root.innerHTML);
         var html = render({});
-        utils.showNewContent(html, 'signForm');
+        utils.showNewContent(html, 'signForm', function() {
+            i18n.loadLanguage(context.currentLanguage);
+        });
     }
 };
 

@@ -1,5 +1,5 @@
 var shortcuts = {
-    currentLanguage: null,
+    // currentLanguage: null,
 
     renderShutcut: function(user, language) {
         var shortcut = document.getElementsByClassName('shortcut')[0];
@@ -19,12 +19,12 @@ var shortcuts = {
         var lanImg = document.createElement('img');
         for (var i = 0; i < languages.length; i++) {
             if (languages[i].name === language) {
-                this.currentLanguage = languages[i];
+                context.currentLanguage = languages[i];
                 break;
             }
         }
         lanImg.setAttribute('id', 'shortcut_lan');
-        lanImg.setAttribute('src', this.currentLanguage.img);
+        lanImg.setAttribute('src', context.currentLanguage.img);
         lanImg.style.width = '24px';
         lanImg.style.height = '24px';
         shortcutItem.addEventListener('mouseover', shortcuts.onMouseOver)
@@ -40,7 +40,7 @@ var shortcuts = {
         var items = document.createElement('ul');
         items.className = 'language-items';
         for (var i = 0; i < languages.length; i++) {
-            if (languages[i] === shortcuts.currentLanguage) {
+            if (languages[i] === context.currentLanguage) {
                 continue;
             }
             var item = document.createElement('li');
@@ -59,24 +59,24 @@ var shortcuts = {
 
         // show context menu
         var shortcutLan = document.getElementById('shortcut_lan');
-        context.showMenu(shortcutLan);
+        contextMenu.showMenu(shortcutLan);
     },
 
     onMouseOut: function(event) {
-        context.hideMenu();
+        contextMenu.hideMenu();
     },
 
     changeLanguage: function(language) {
         // Change current language image
         for (var i = 0; i < languages.length; i++) {
             if (languages[i].name === language) {
-                this.currentLanguage = languages[i];
+                context.currentLanguage = languages[i];
                 break;
             }
         }
         var shortcutLng = document.getElementById('shortcut_lan');
-        shortcutLng.setAttribute('src', this.currentLanguage.img);
+        shortcutLng.setAttribute('src', context.currentLanguage.img);
 
-        i18n.loadLanguage(this.currentLanguage.lng);
+        i18n.loadLanguage(context.currentLanguage);
     }
 }

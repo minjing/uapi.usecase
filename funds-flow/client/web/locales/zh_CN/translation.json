@@ -1,4 +1,11 @@
 {
+    "label": {
+        "signin": "登入",
+        "signup": "注册",
+        "clear": "清除",
+        "user": "用户名",
+        "pwd": "密码"
+    },
     "menu": {
         "signin": "登入",
         "signout": "登出",
@@ -9,8 +16,12 @@
     "shortcut": {
         "annoymous": "匿名用户",
         "lan": {
-            "en_US": "美国英语",
-            "zh_CN": "简体中文"
+            "en_US": "英语（美国）",
+            "zh_CN": "中文（简体）"
         }
+    },
+    "message": {
+        "empty_username": "用户名不能为空",
+        "empty_password": "用户密码不能为空"
     }
 }

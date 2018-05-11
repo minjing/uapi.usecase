@@ -4,3 +4,67 @@
     width: 80%;
     padding: 10px;
 }
+
+.signForm li {
+    list-style: none;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 30px;
+}
+
+.signForm .title {
+    display: inline-block;
+    text-align: right;
+    width: 20%;
+    margin-right: 10px;
+    font-weight: 400;
+}
+
+.signForm input {
+    /* min-height: 28px; */
+    padding: 6px;
+    border: 1px solid #d1d5da;
+    border-radius: 3px;
+    box-shadow: inset 0 1px 2px rgba(27,31,35,0.075);
+}
+
+.signForm .hSep {
+    background-color: rgba(27,31,35,0.2);
+    height: 1px;
+    margin: 10px;
+}
+
+.signForm .vSep {
+    background-color: rgba(27,31,35,0.2);
+    width: 1px;
+    margin: 10px;
+}
+
+.signForm button {
+    border: 1px solid rgba(27,31,35,0.2);
+    border-radius: 3px;
+    padding: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: 600;
+    font-size: 13px
+}
+
+.btnNormal {
+    background-image: linear-gradient(-180deg, #fafbfc 0%, #eff3f6 90%);
+}
+
+.btnNormal:hover {
+    border: 1px solid rgba(27,31,35,0.35);
+    background-image: linear-gradient(-180deg, #f0f3f6 0%, #e6ebf1 90%);
+}
+
+.btnPrimary {
+    color: #fff;
+    background-image: linear-gradient(-180deg, #75cafd 0%, #3a86bd 90%);
+}
+
+.btnPrimary:hover {
+    border: 1px solid rgba(27,31,35,0.35);
+    background-image: linear-gradient(-180deg, #68b5e2 0%, #3477a9 90%);
+}

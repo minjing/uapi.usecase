@@ -1,4 +1,11 @@
 {
+    "label": {
+        "signin": "Sign In",
+        "signup": "Sign Up",
+        "clear": "Clear",
+        "user": "User Name",
+        "pwd": "Password"
+    },
     "menu": {
         "signin": "Sign In",
         "signout": "Sign Out",
@@ -10,7 +17,11 @@
         "annoymous": "Anonymous User",
         "lan": {
             "en_US": "English (US)",
-            "zh_CN": "Simplified Chinese"
+            "zh_CN": "Chinese (Simplified)"
         }
+    },
+    "message": {
+        "empty_username": "User name is required",
+        "empty_password": "User password is required"
     }
 }

@@ -2,12 +2,10 @@
     position: absolute;
     left: -1000px;
     top: -1000px;
-    /* width: 100px;
-    height: 200px; */
-    border: 1px solid #aeaeae;
+    border: 1px solid rgba(27,31,35,0.15);
     border-radius: 4px;
     padding: 2px;
-    box-shadow: 1px 1px 1px #aeaeae;
+    box-shadow: 0 3px 12px rgba(27,31,35,0.15);
     visibility: hidden;
 }
 
