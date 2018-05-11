@@ -1,9 +1,10 @@
 var signinPage = {
     name: 'signin',
-    template: 'fragment/signin.html',
+    css: 'fragment/sign.css',
+    template: 'fragment/signin/signin.html',
 
     onLoad: function() {
-        loader.css('css/page/sign.css');
+        loader.css(signinPage.css);
     },
 
     onInit: function() {

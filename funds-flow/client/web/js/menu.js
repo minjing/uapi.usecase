@@ -1,11 +1,11 @@
 var signMenus = [{
     name: 'signin',
     i18nkey: 'menu.signin',
-    js: 'js/page/signin.js'
+    js: 'fragment/signin/signin.js'
 }, {
     name: 'signup',
     i18nkey: 'menu.signup',
-    js: 'js/page/signup.js'
+    js: 'fragment/signup/signup.js'
 }]
 
 var menus = {
