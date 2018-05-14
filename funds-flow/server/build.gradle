@@ -52,6 +52,10 @@ dependencies {
             "uapi:uapi.net.http:${uapi_facility_version}",
             "uapi:uapi.app.terminal:${uapi_facility_version}"
     )
+
+    runtime (
+            "uapi:uapi.net.http.netty:${uapi_facility_version}"
+    )
 }
 
 jar {
