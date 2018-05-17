@@ -29,6 +29,7 @@ public class ListenHttpPort {
         Map<String, Object> attrs = new HashMap<>();
         attrs.put(HttpAttributes.HOST, "127.0.0.1");
         attrs.put(HttpAttributes.PORT, 8000);
+        attrs.put(HttpAttributes.EVENT_SOURCE, "APIServer");
         IHttpListener httpListener = this._registry.findService(IHttpListener.class, attrs);
         httpListener.startUp();
 

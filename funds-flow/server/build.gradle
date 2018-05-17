@@ -50,7 +50,9 @@ dependencies {
             "uapi:uapi.behavior:${uapi_cornerstone_version}",
             "uapi:uapi.net:${uapi_facility_version}",
             "uapi:uapi.net.http:${uapi_facility_version}",
-            "uapi:uapi.app.terminal:${uapi_facility_version}"
+            "uapi:uapi.app.terminal:${uapi_facility_version}",
+            "uapi:uapi.protocol:${uapi_facility_version}",
+            "uapi:uapi.protocol.graphql:${uapi_facility_version}"
     )
 
     runtime (
