@@ -4,6 +4,7 @@ import org.inactionware.fundsflow.action.ListenHttpPort;
 import uapi.app.AppStartupEvent;
 import uapi.behavior.IResponsible;
 import uapi.behavior.IResponsibleRegistry;
+import uapi.config.annotation.Config;
 import uapi.log.ILogger;
 import uapi.net.http.HttpEvent;
 import uapi.protocol.*;
@@ -16,13 +17,13 @@ import uapi.service.annotation.Service;
 public class ApiServer {
 
     @Inject
+    protected IRegistry _reg;
+
+    @Inject
     protected ILogger _logger;
 
     @Inject
     protected IResponsibleRegistry _respReg;
-
-    @Inject
-    protected IRegistry _reg;
 
     @OnActivate
     public void activate() {

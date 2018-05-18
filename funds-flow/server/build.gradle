@@ -39,6 +39,7 @@ repositories {
 dependencies {
     compileOnly (
             "uapi:uapi.service.apt:${uapi_cornerstone_version}",
+            "uapi:uapi.config.apt:${uapi_cornerstone_version}",
             "uapi:uapi.behavior.apt:${uapi_cornerstone_version}",
             "uapi:uapi.net.apt:${uapi_facility_version}"
     )
