@@ -1,5 +1,6 @@
 package org.inactionware.fundsflow;
 
+import org.inactionware.fundsflow.action.HandleAPIRequest;
 import org.inactionware.fundsflow.action.ListenHttpPort;
 import uapi.app.AppStartupEvent;
 import uapi.behavior.IResponsible;
@@ -34,8 +35,9 @@ public class ApiServer {
                 .build();
         server.newBehavior("Handle HTTP request", HttpEvent.class, HttpEvent.TOPIC)
                 .then(InitProcessing.actionId)
-                .then(EncodeProtocol.actionId)
                 .then(DecodeProtocol.actionId)
+                .then(HandleAPIRequest.actionId)
+                .then(EncodeProtocol.actionId)
                 .then(EndProcessing.actionId)
                 .onFailure(ErrorProcessing.actionId)
                 .build();
