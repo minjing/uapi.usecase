@@ -3,7 +3,6 @@ package org.inactionware.fundsflow.action;
 import uapi.behavior.ActionIdentify;
 import uapi.behavior.annotation.Action;
 import uapi.behavior.annotation.ActionDo;
-import uapi.net.http.HttpEvent;
 import uapi.protocol.ResourceProcessing;
 import uapi.service.annotation.Service;
 
