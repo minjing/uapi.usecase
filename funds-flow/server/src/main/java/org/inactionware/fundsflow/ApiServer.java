@@ -31,7 +31,7 @@ public class ApiServer {
         IResponsible server = this._respReg.register("API Server");
         server.newBehavior("Listen HTTP port", AppStartupEvent.class, AppStartupEvent.TOPIC)
                 .then(ListenHttpPort.actionId)
-                .then((input, ctx) -> { this._logger.info("Listen HTTP port success."); return input; })
+                .call(ctx -> { this._logger.info("Listen HTTP port success."); })
                 .build();
         server.newBehavior("Handle HTTP request", HttpEvent.class, HttpEvent.TOPIC)
                 .then(InitProcessing.actionId)
@@ -39,7 +39,7 @@ public class ApiServer {
                 .then(HandleAPIRequest.actionId)
                 .then(EncodeProtocol.actionId)
                 .then(EndProcessing.actionId)
-                .onFailure(ErrorProcessing.actionId)
+//                .onFailure(ErrorProcessing.actionId)
                 .build();
 //        server.newBehavior("Shut down HTTP port", AppShutdownEvent.class, AppShutdownEvent.TOPIC)
 //                .then()
