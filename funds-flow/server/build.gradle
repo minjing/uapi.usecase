@@ -50,15 +50,16 @@ dependencies {
         coordinate(cornerstoneProjects.config_apt),
         coordinate(cornerstoneProjects.behavior_apt),
         coordinate(facilityProjects.net_apt),
-        coordinate(baseProjects.codegen),
-        coordinate(libs.auto_service)
+        coordinate(baseProjects.codegen)
     )
 
     compile (
         coordinate(baseProjects.common),
         coordinate(baseProjects.exception),
         coordinate(cornerstoneProjects.service),
+        coordinate(cornerstoneProjects.command),
         coordinate(cornerstoneProjects.behavior),
+        coordinate(cornerstoneProjects.app),
         coordinate(facilityProjects.net),
         coordinate(facilityProjects.net_http),
         coordinate(facilityProjects.app_terminal),
@@ -69,6 +70,18 @@ dependencies {
         coordinate(facilityProjects.net_http_netty),
         coordinate(facilityProjects.protocol_graphql)
     )
+}
+
+ext.moduleName = "${project.name}"
+
+compileJava {
+    inputs.property("moduleName", moduleName)
+    doFirst {
+        options.compilerArgs = [
+                '--module-path', classpath.asPath,
+        ]
+        classpath = files()
+    }
 }
 
 jar {
