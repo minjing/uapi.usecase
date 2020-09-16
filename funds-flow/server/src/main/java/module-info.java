@@ -21,6 +21,9 @@ module fundsflow {
     requires uapi.protocol;
     requires uapi.app;
     requires uapi.app.terminal;
+    requires jdk.unsupported;
 
-    provides IModulePortal with FundsflowModulePortal; 
+    provides IModulePortal with FundsflowModulePortal;
+
+    exports fundsflow.generated to uapi.service;
 }

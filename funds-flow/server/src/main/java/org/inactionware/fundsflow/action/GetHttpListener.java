@@ -1,9 +1,9 @@
 package org.inactionware.fundsflow.action;
 
+import uapi.GeneralException;
 import uapi.behavior.ActionIdentify;
 import uapi.behavior.annotation.Action;
 import uapi.behavior.annotation.ActionDo;
-import uapi.config.annotation.Config;
 import uapi.net.http.HttpAttributes;
 import uapi.net.http.IHttpListener;
 import uapi.service.IRegistry;
@@ -15,9 +15,9 @@ import java.util.Map;
 
 @Service
 @Action
-public class ListenHttpPort {
+public class GetHttpListener {
 
-    public static final ActionIdentify actionId = ActionIdentify.toActionId(ListenHttpPort.class);
+    public static final ActionIdentify actionId = ActionIdentify.toActionId(GetHttpListener.class);
 
     @Inject
     protected IRegistry _registry;
@@ -32,6 +32,10 @@ public class ListenHttpPort {
         attrs.put(HttpAttributes.HOST, host);
         attrs.put(HttpAttributes.PORT, port);
         attrs.put(HttpAttributes.EVENT_SOURCE, eventSrc);
-        return this._registry.findService(IHttpListener.class, attrs);
+        IHttpListener httpListener = this._registry.findService(IHttpListener.class, attrs);
+        if (httpListener == null) {
+            throw new GeneralException("Create HTTP Listener failed");
+        }
+        return httpListener;
     }
 }
